@@ -41,15 +41,13 @@ recommandation
 
 Content of ```data/books_liked.csv```:
 
-```bash
-Titre,Auteur
+```Titre,Auteur
 "Harry Potter, tome 1 : Harry Potter à l'école des sorciers",J. K. Rowling
 "Le Livre des étoiles, tome 2 : Le Seigneur Sha",Erik L'Homme
 A comme association tome 1,Erik L'Homme et Pierre Bottero
 "Tara Duncan, tome 01 : Les Sortceliers",Sophie Audouin-Mamikonian
 "Percy Jackson / Percy Jackson et les Olympiens, tome 1 : Le voleur de foudre",Rick Riordan
-"Harry Potter, tome 4 : Harry Potter et la Coupe de feu",J. K. Rowling
-```
+"Harry Potter, tome 4 : Harry Potter et la Coupe de feu",J. K. Rowling```
 
 Command line:
 
@@ -60,7 +58,7 @@ python main.py --book_liked_path=data/books_liked.csv --author_out
 This command will recommend books similar to the ones liked by the user and will also recommend authors found in the list of liked books.
 
 Results:
-```bash
+```
 Here are the books recommended for you:
 
 David Colbert   |        Les mondes magiques de Harry Potter
