@@ -1,0 +1,36 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>Moteur de recommandations</title>
+        <link rel="stylesheet" href="{% static 'styles.css' %}" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+        <ul class="nav-list">
+            <li>
+                <a class="nav-item" href="{% url 'recherche_livres' %}">
+                    <img src="{% static 'reco_livres/logo_livres.png' %}" alt="menu-livres" />
+                    <span class="tooltip">Recommandations de livres</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-item" href="#">
+                    <img src="{% static 'reco_films/logo_film.png' %}" alt="menu-films" />
+                    <span class="tooltip">Recommandations de films</span>
+                </a>
+            </li>
+        </ul>
+
+        <div id="header">
+            <img src="{% static 'reco_livres/logo_livres.png' %}" alt="book" />
+            <h1>Moteur de recommandations de livres</h1>
+        </div>
+        
+        {% block content %}{% endblock %}
+
+    </body>
+</html>

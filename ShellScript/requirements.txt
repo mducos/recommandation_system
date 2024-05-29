@@ -1,0 +1,4 @@
+colorama==0.4.6
+pandas==2.2.2
+scikit-learn==1.4.2
+stop-words==2018.7.23

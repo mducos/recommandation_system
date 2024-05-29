@@ -1,0 +1,22 @@
+
+# Ignore Python bytecode
+*.pyc
+__pycache__/
+
+# Ignore database file
+db.sqlite3
+
+# Ignore the .DS_Store file commonly created on macOS
+.DS_Store
+
+# Ignore migration directories
+*/migrations/
+
+# Ignore static files
+staticfiles/
+
+# Ignore media files
+media/
+
+# Ignore very big files
+ShellScript/data/*

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p class="center">Ajoutez à la liste de droite les livres que vous aimez afin de vous recommander de nouvelles lectures</p>
+<div class="panel">
+    <div class="left-panel">
+        <h1>Recherche de Livres</h1>
+        <div class="search-container">
+            <form id="search-form" method="POST" class="search-bar">
+                {% csrf_token %}
+                <input type="text" id="search-input" name="search_book" placeholder="Rechercher un livre..." value="{{ request.GET.search_book }}">
+            </form>
+        </div>
+
+        <div class="results-container">
+            <h2>Résultats de la recherche :</h2>
+            {% for livre in livres %}
+            <div class="card">
+                <div class="card-title">{{ livre.titre }}</div>
+                <div class="card-details">
+                    <div class="card-author">{{ livre.auteur }}</div>
+                    <div class="card-date">{{ livre.annee_publication }}</div>
+                </div>
+                <form method="POST" class="add-favorite-form">
+                    {% csrf_token %}
+                    <input type="hidden" name="livre_id" value="{{ livre.id_livre }}">
+                    <button type="submit" name="add_to_favorites">Ajouter aux favoris</button>
+                </form>
+            </div>
+            {% empty %}
+            <div>Aucun résultat trouvé.</div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="right-panel">
+        <h1>Les livres que vous avez aimés</h1>
+        <div class="post-it">
+            {% for livre in livres_aimes %}
+            <p>{{ livre.titre }} - {{ livre.auteur }}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('search-input');
+        const searchForm = document.getElementById('search-form');
+    
+        // Ajouter un écouteur d'événement sur le champ de recherche pour déclencher la soumission du formulaire
+        // lorsque l'utilisateur termine de saisir (keyup event)
+        searchInput.addEventListener('keyup', function(event) {
+            // Si l'utilisateur appuie sur Entrée (keyCode 13), soumettre le formulaire
+            if (event.keyCode === 13) {
+                searchForm.submit();
+            }
+        });
+    
+        // Si vous souhaitez soumettre le formulaire lorsque l'utilisateur cesse de saisir,
+        // vous pouvez utiliser l'événement 'input' à la place de 'keyup'
+        // searchInput.addEventListener('input', function(event) {
+        //     // Soumettre le formulaire dès que l'utilisateur cesse de saisir
+        //     searchForm.submit();
+        // });
+    });
+    </script>
