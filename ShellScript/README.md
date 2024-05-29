@@ -14,6 +14,13 @@ pip install -r requirements.txt
 
 ## Usage
 
+### Download the database
+
+Download the three files in the `ShellScript/data` folder:
+- [`author2title2book.json`](https://drive.google.com/file/d/1aii0jIF04xocE5WUGjibGO4D-YE5Ywo7/view?usp=sharing)
+- [`book_database.csv`](https://drive.google.com/file/d/1VX7HHA2yuYeLq_HWHm7BuJwcjHI4BjGa/view?usp=sharing)
+- [`format2genre2book.json`](https://drive.google.com/file/d/1iyNnbxL0vX5pw7lag-yIT_yYDmXCoYGq/view?usp=sharing)
+
 ### Command-line Arguments
 
 - `--book_liked_path`: Required. Path to the CSV file containing books liked by the user.
@@ -31,11 +38,11 @@ Replace `<path_to_csv_file>` with the path to your CSV file containing the list 
 
 #### First step
 
-input process
+When you enter the books you like by hand, they may not be written in the same way as in the database, in which case the system will interactively suggest that you modify the title and author to match the data.
 
 #### Second step
 
-recommandation
+Run the script in a shell, and some book recommandations will appear!
 
 ## Example
 
@@ -74,18 +81,3 @@ Jordanna Max Brodsky    |        Olympus Bound, book 1: The Immortals
 Raymond E. Feist        |        Les nouvelles chroniques de Krondor / L'entre-deux-guerres / Les Fils de Krondor, tome 2 : Le Boucanier du Roi
 Aude Vidal-Lessard      |        Polux, tome 5 : L’éveil du loup
 ```
-
-## Releases
-
-May 2024: first version of the book recommendation system using TF-IDF and cosine similarity
-
-## What's next?
-
-Some ideas for future improvements and contributions: 
-- adapt the recommendation system for films
-- create a visual interface with the Django framework
-- improve the recommendation algorithm
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
