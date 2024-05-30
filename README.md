@@ -1,18 +1,14 @@
-# Book Recommendation System
+# Recommendation System
 
 ## Introduction
 
-This is a book recommendation system that recommends books (only in French) to users based on their liked books.
+This is a recommendation system that recommends books (only in French) to users based on their liked books.
 
 ## Usage
 
-To use this book recommendation system, you can follow these steps:
-
-1. Clone the repository from [here](https://github.com/mducos/recommandation_system/tree/main/ShellScript).
-2. Navigate to the `ShellScript` directory.
-3. Run the necessary scripts to set up the recommendation system.
-4. Start the recommendation system and provide your liked books as input.
-5. Receive book recommendations based on your preferences.
+Clone the repository of the system you would like use:
+- [book recommendation system with shell](https://github.com/mducos/recommandation_system/tree/main/ShellScript)
+And follow the instructions on the README file
 
 ## Releases
 
