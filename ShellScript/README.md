@@ -41,7 +41,7 @@ Replace `<path_to_csv_file>` with the path to your CSV file containing the list 
 When you enter the books you like by hand, they may not be written in the same way as in the database, in which case the system will interactively suggest that you modify the title and author to match the data.
 
 If an author is not found, you will find this message:
-`/!\ Author not found in the database: [author]`
+```/!\ Author not found in the database: [author]```
 then, at most three authors from the database will be proposed to you:
 ```
 The closest authors to [author] are:
@@ -51,7 +51,7 @@ The closest authors to [author] are:
 -----> Which suggestion do you want to use to modify the author? [1|2|3] 
 ```
 you can choose between the three authors, and the modification will be taken into account:
-`The author has been successfully modified.`
+```The author has been successfully modified.```
 
 If a title is not found, you will receive this message:
 ```
@@ -64,10 +64,10 @@ The closest titles to \"{title}\" are:
 -----> Which suggestion do you want to use to modify the title? [1|2|3] 
 ```
 you can choose between the three titles, and the modification will be taken into account:
-`The title has been successfully modified.`
+```The title has been successfully modified.```
 
 When everything has been reviewed, this message appears:
-`All books have been successfully verified.`
+```All books have been successfully verified.```
 
 #### Second step
 
