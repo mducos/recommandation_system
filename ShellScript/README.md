@@ -51,11 +51,13 @@ The closest authors to [author] are:
 -----> Which suggestion do you want to use to modify the author? [1|2|3] 
 ```
 you can choose between the three authors, and the modification will be taken into account:
-```The author has been successfully modified.```
+```
+The author has been successfully modified.
+```
 
 If a title is not found, you will receive this message:
 ```
-`/!\ Title not found among the books of [author]: [title]`
+/!\ Title not found among the books of [author]: [title]
 then, at most three titles from the books of the author in the database will be proposed to you:
 The closest titles to \"{title}\" are:
 |1| [suggested title 1]
@@ -64,10 +66,14 @@ The closest titles to \"{title}\" are:
 -----> Which suggestion do you want to use to modify the title? [1|2|3] 
 ```
 you can choose between the three titles, and the modification will be taken into account:
-```The title has been successfully modified.```
+```
+The title has been successfully modified.
+```
 
 When everything has been reviewed, this message appears:
-```All books have been successfully verified.```
+```
+All books have been successfully verified.
+```
 
 #### Second step
 
