@@ -6,7 +6,7 @@ This is a recommendation system that recommends books (only in French) to users 
 
 ## Usage
 
-Clone the repository of the system you would like use:
+Clone the repository of the system you would like to use:
 - [book recommendation system with shell](https://github.com/mducos/recommandation_system/tree/main/ShellScript)
 
 And follow the instructions on the README file
