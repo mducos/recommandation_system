@@ -19,4 +19,6 @@ staticfiles/
 media/
 
 # Ignore very big files
-ShellScript/data/*
+ShellScript/data/author2title2book.json
+ShellScript/data/book_database.csv
+ShellScript/data/format2genre2book.json
