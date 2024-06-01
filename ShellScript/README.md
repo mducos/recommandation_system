@@ -78,7 +78,7 @@ If a title is not found, you will receive this message:
 then, at most three titles from the books of the author in the database will be proposed to you:
 
 ```
-The closest titles to \"{title}\" are:
+The closest titles to [title] are:
 |1| [suggested title 1]
 |2| [suggested title 2]
 |3| [suggested title 3]
