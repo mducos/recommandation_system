@@ -46,20 +46,27 @@ If an author is not found, you will find this message:
 /!\ Author not found in the database: [author]
 ```
 
-then, at most three authors from the database will be proposed to you:
+Then, at most three authors from the database will be proposed to you:
 
 ```
 The closest authors to [author] are:
 |1| [suggested author 1]
 |2| [suggested author 2]
 |3| [suggested author 3]
------> Which suggestion do you want to use to modify the author? [1|2|3] 
+-----> Which suggestion do you want to use to modify the author? [1|2|3|n] 
 ```
 
-you can choose between the three authors, and the modification will be taken into account:
+You can choose between the three authors (`1`, `2`, `3`), or to not modify the author in input (`n`)
+If you choose to modify the author, the modification will be taken into account:
 
 ```
 The author has been successfully modified.
+```
+
+If you choose to not modify the author, the book will be added to the database. Be aware, as the book has not been recognized, its entry in the database will be empty (i.e., there will be no synopsis). This option therefore avoids the need to change a book into another that doesn't match, if the author or title are not included in the suggestions.
+
+```
+The author has been added to the database.
 ```
 
 If a title is not found, you will receive this message:
