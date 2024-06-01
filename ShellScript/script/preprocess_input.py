@@ -35,21 +35,27 @@ def verify_input(input_file):
 
                 # Ask the user if they want to modify the author with one of the suggested authors
                 user_choice = ""
-                while user_choice not in ["1", "2", "3"]:
-                    user_choice = input("-----> Which suggestion do you want to use to modify the author? [1|2|3] ")
+                while user_choice not in ["1", "2", "3", "n"]:
+                    user_choice = input("-----> Which suggestion do you want to use to modify the author? [1|2|3|n] ")
                     if user_choice == "1" and len(similar_authors) > 0:
                         author = similar_authors[0]  # Modify the author with the first suggestion
                     elif user_choice == "2" and len(similar_authors) > 1:
                         author = similar_authors[1]  # Modify the author with the second suggestion
                     elif user_choice == "3" and len(similar_authors) > 2:
                         author = similar_authors[2]  # Modify the author with the third suggestion
+                    elif user_choice == "n":
+                        author2title[author] = {}
+                        author2title[author][title] = [{"Synopsis (str)": "", "Genre (List(str))": "", "Format (str)": ""}]
                     else:
                         user_choice = ""
 
-                # Update the author in the DataFrame and save the modified DataFrame to the CSV file
-                input_file_df.at[index, 'Auteur'] = author
-                input_file_df.to_csv(input_file, index=False)
-                print(Fore.GREEN + "The author has been successfully modified." + Style.RESET_ALL)
+                if user_choice != "n":
+                    # Update the author in the DataFrame and save the modified DataFrame to the CSV file
+                    input_file_df.at[index, 'Auteur'] = author
+                    input_file_df.to_csv(input_file, index=False)
+                    print(Fore.GREEN + "The author has been successfully modified." + Style.RESET_ALL)
+                else:
+                    print(Fore.GREEN + "The author has been added to the database." + Style.RESET_ALL)
 
         # Check if the title is in the list of books for the author
         if title not in author2title[author]:
@@ -66,21 +72,26 @@ def verify_input(input_file):
 
                 # Ask the user if they want to modify the title with one of the suggested titles
                 user_choice = ""
-                while user_choice not in ["1", "2", "3"]:
-                    user_choice = input("-----> Which suggestion do you want to use to modify the title? [1|2|3] ")
+                while user_choice not in ["1", "2", "3", "n"]:
+                    user_choice = input("-----> Which suggestion do you want to use to modify the title? [1|2|3|n] ")
                     if user_choice == "1" and len(similar_title) > 0:
                         title = similar_title[0]  # Modify the title with the first suggestion
                     elif user_choice == "2" and len(similar_title) > 1:
                         title = similar_title[1]  # Modify the title with the second suggestion
                     elif user_choice == "3" and len(similar_title) > 2:
                         title = similar_title[2]  # Modify the title with the third suggestion
+                    elif user_choice == "n":
+                        author2title[author][title] = {"Synopsis (str)": "", "Genre (List(str))": "", "Format (str)": ""}
                     else:
                         user_choice = ""
 
-                # Update the title in the DataFrame and save the modified DataFrame to the CSV file
-                input_file_df.at[index, 'Titre'] = title
-                input_file_df.to_csv(input_file, index=False)
-                print(Fore.GREEN + "The title has been successfully modified." + Style.RESET_ALL)
+                if user_choice != "n":
+                    # Update the title in the DataFrame and save the modified DataFrame to the CSV file
+                    input_file_df.at[index, 'Titre'] = title
+                    input_file_df.to_csv(input_file, index=False)
+                    print(Fore.GREEN + "The title has been successfully modified." + Style.RESET_ALL)
+                else:
+                    print(Fore.GREEN + "The title has been added to the database." + Style.RESET_ALL)
 
         # If the author is in the database, check if the title is also present
         if author in author2title:

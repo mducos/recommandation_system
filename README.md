@@ -18,6 +18,7 @@ May 2024: first version of the book recommendation system using TF-IDF and cosin
 ## What's next?
 
 Some ideas for future improvements and contributions: 
+- recommend as a priority volumes 1
 - adapt the recommendation system for films
 - create a visual interface with the Django framework
 - improve the recommendation algorithm
