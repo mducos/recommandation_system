@@ -13,7 +13,8 @@ And follow the instructions on the README file
 
 ## Releases
 
-May 2024: first version of the book recommendation system using TF-IDF and cosine similarity
+May 31, 2024: First version of the book recommendation system using TF-IDF and cosine similarity
+June 2, 2024: When a saga is included in the list of beloved books, only the next volume not on the list can be recommended. For example, if a volume 3 is present in the list of beloved books, volume 2 cannot be recommended.
 
 ## What's next?
 

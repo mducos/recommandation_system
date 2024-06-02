@@ -108,6 +108,23 @@ def get_top_10_titles(input_file_path, authors_to_remove, genres, formats):
     # Remove books that are already in the input file
     df_books = df_books[~df_books['Titre (str)'].isin(input_file_df['Titre'])]
 
+    df_books['Saga Title'] = df_books['Titre (str)'].str.split(", tome ").str[0]
+    df_books['Tome Number'] = df_books['Titre (str)'].str.split(", tome ").str[1].str.split(" : ").str[0].str.extract('(\d+)').astype(float)
+
+    # Replace NaN values with empty strings
+    df_books.fillna(0, inplace=True)
+
+    # Remove books with a tome number lower than the maximum tome number
+    for title, author in zip(input_file_df['Titre'], input_file_df['Auteur']):
+        if ", tome " in title:
+            saga_title = title.split(", tome ")[0]
+            tome_number = title.split(", tome ")[1].split(" : ")[0]
+            
+            df_books = df_books[~((df_books['Auteur (str)'] == author) & 
+                                  (df_books['Saga Title'] == saga_title) & 
+                                  ((df_books['Tome Number'] < float(tome_number)) | 
+                                   (df_books['Tome Number'] > float(int(tome_number) + 1))))]
+            
     # Extract the synopses for TFIDF vectorization
     documents = df_books['Synopsis (str)']
 
@@ -135,7 +152,12 @@ def get_top_10_titles(input_file_path, authors_to_remove, genres, formats):
     top_10_similarities = similarite_series.nlargest(10)
 
     print("Here are the books recommended for you:\n")
+    max_author_length = 0
+    for doc_id in top_10_similarities.index:
+        max_author_length = max(max_author_length, len(df_books.loc[doc_id, 'Auteur (str)']))
     # Print the recommended books
     for doc_id in top_10_similarities.index:
-        print(df_books.loc[doc_id, 'Auteur (str)'], "\t|\t", df_books.loc[doc_id, 'Titre (str)'])
+        author = df_books.loc[doc_id, 'Auteur (str)']
+        title = df_books.loc[doc_id, 'Titre (str)']
+        print(f"{author.ljust(max_author_length)} \t| {title}")
     print()
